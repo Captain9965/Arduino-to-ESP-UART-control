@@ -1,0 +1,26 @@
+
+/* sends data through UART to ESP8266 VM*/
+void setup() 
+{
+  Serial.begin(9600);        //set baud rate
+  
+}
+
+void loop()
+{
+                          
+  Serial.write(00000101);         //pin 2 high
+  delay(1000);  
+  Serial.write(00001001);       //pin 4 high after 1 second
+  delay(1000);
+  Serial.write(00001011);       //pin 5 high after 2 seconds
+  delay(3000);
+   
+  Serial.write(00000100);       //pin 2 low after 5 seconds
+  delay(1000);   
+  Serial.write(00001000);       //pin 4 low after 6 seconds
+  delay(1000);
+  Serial.write(00001010);       //pin 5 low after 7 seconds
+  delay(1000);                  // cycle repeats after 1 second
+
+}
